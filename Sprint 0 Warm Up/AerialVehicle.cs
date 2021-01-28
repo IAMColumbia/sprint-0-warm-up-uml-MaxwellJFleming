@@ -6,41 +6,57 @@ namespace Sprint_0_Warm_Up
     {
         public int CurrentAltitude { get; set; }
 
-        Engine Engine { get; set; }
+        public Engine Engine { get; set; }
+
+        public bool IsFlying { get; set; }
+
+        public int MaxAltitude { get; set; }
 
         public AerialVehicle()
         {
-
+            Engine = new Engine();
         }
 
-        public bool About()
+        public string About()
         {
-            throw new NotImplementedException();
+            if (Engine.isStarted)
+                return $"This Sprint_0_Warm_Up.AerialVehicle has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\nSprint_0_Warm_Up.AerialVehicle engine is started.";
+            else
+                return $"This Sprint_0_Warm_Up.AerialVehicle has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\nSprint_0_Warm_Up.AerialVehicle engine is not started.";
         }
 
-        public bool TakeOff()
+        public string TakeOff()
         {
-            throw new NotImplementedException();
+            if (Engine.isStarted)
+            {
+                IsFlying = true;
+                return "Sprint_0_Warm_Up.AerialVehicle is flying.";
+            }  
+            else
+                return "Sprint_0_Warm_Up.AerialVehicle can't fly it's engine is not started.";
         }
 
         public void StartEngine()
         {
-            throw new NotImplementedException();
+            Engine.Start();
         }
 
         public void FlyDown(int howMuch)
         {
-            throw new NotImplementedException();
+            if (CurrentAltitude - howMuch >= 0)
+                CurrentAltitude -= howMuch;
         }
 
         internal void FlyUp()
         {
-            throw new NotImplementedException();
+            if (CurrentAltitude + 1000 <= MaxAltitude)
+                CurrentAltitude += 1000;
         }
 
         internal void FlyUp(int HowMuch)
         {
-            throw new NotImplementedException();
+            if (CurrentAltitude + HowMuch <= MaxAltitude)
+                CurrentAltitude += HowMuch;
         }
     }
 }

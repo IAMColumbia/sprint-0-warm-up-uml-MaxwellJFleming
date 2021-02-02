@@ -20,9 +20,9 @@ namespace Sprint_0_Warm_Up
         public string About()
         {
             if (Engine.isStarted)
-                return $"This Sprint_0_Warm_Up.AerialVehicle has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\nSprint_0_Warm_Up.AerialVehicle engine is started.";
+                return $"This {ToString()} has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\n{ToString()} engine is started.";
             else
-                return $"This Sprint_0_Warm_Up.AerialVehicle has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\nSprint_0_Warm_Up.AerialVehicle engine is not started.";
+                return $"This {ToString()} has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\n{ToString()} engine is not started.";
         }
 
         public string TakeOff()
@@ -30,10 +30,10 @@ namespace Sprint_0_Warm_Up
             if (Engine.isStarted)
             {
                 IsFlying = true;
-                return "Sprint_0_Warm_Up.AerialVehicle is flying.";
+                return $"{ToString()} is flying.";
             }  
             else
-                return "Sprint_0_Warm_Up.AerialVehicle can't fly it's engine is not started.";
+                return $"{ToString()} can't fly it's engine is not started.";
         }
 
         public void StartEngine()

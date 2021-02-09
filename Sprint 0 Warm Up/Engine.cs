@@ -2,26 +2,29 @@
 {
     public class Engine
     {
-        public bool isStarted { get; set; }
+        public bool IsStarted { get; set; }
 
         public Engine()
         {
 
         }
 
-        public bool About()
+        public string About()
         {
-            return true;
+            if (IsStarted)
+                return $"{ToString()} is started.";
+            else
+                return $"{ToString()} is not started.";
         }
 
         public void Start()
         {
-            isStarted = true;
+            IsStarted = true;
         }
 
         public void Stop()
         {
-            isStarted = false;
+            IsStarted = false;
         }
     }
 }

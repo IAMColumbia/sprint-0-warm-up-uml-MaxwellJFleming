@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sprint_0_Warm_Up
 {
-    class ToyPlane : Airplane
+    public class ToyPlane : Airplane
     {
         public bool isWoundUp { get; set; }
 
@@ -16,30 +16,40 @@ namespace Sprint_0_Warm_Up
         public string getWindUpString()
         {
             if (isWoundUp)
-                return "String is wound up.";
+                return $"{ToString()} string is wound up.";
             else
-                return "String is not wound up.";
+                return $"{ToString()} string is not wound up.";
         }
 
         public void StartEngine()
         {
             if (isWoundUp)
+            {
                 Engine.Start();
+                Unwind();
+            }
+                
         }
 
         public string TakeOff()
         {
-            throw new NotImplementedException();
+            if (Engine.IsStarted)
+            {
+                IsFlying = true;
+                return $"{ToString()} is flying.";
+            }
+            else
+                return $"{ToString()} can't fly its engine isn't started.";
         }
 
         public void Unwind()
         {
-            throw new NotImplementedException();
+            isWoundUp = false;
         }
 
         public void WindUp()
         {
-            throw new NotImplementedException();
+            isWoundUp = true;
         }
     }
 }

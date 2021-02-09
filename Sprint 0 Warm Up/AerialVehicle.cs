@@ -6,41 +6,70 @@ namespace Sprint_0_Warm_Up
     {
         public int CurrentAltitude { get; set; }
 
-        Engine Engine { get; set; }
+        public Engine Engine { get; set; }
+
+        public bool IsFlying { get; set; }
+
+        public int MaxAltitude { get; set; }
 
         public AerialVehicle()
         {
-
+            Engine = new Engine();
         }
 
-        public bool About()
+        public string About()
         {
-            throw new NotImplementedException();
+            return $"This {ToString()} has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\n{getEngineStartedString()}";
         }
 
-        public bool TakeOff()
+        public string TakeOff()
         {
-            throw new NotImplementedException();
+            if (Engine.IsStarted)
+            {
+                IsFlying = true;
+                return $"{ToString()} is flying";
+            }  
+            else
+                return $"{ToString()} can't fly it's engine is not started.";
+        }
+
+        public string getEngineStartedString()
+        {
+            return Engine.About();
         }
 
         public void StartEngine()
         {
-            throw new NotImplementedException();
+            Engine.Start();
+        }
+
+        public void StopEngine()
+        {
+            Engine.Stop();
+        }
+
+        public void FlyDown()
+        {
+            if (CurrentAltitude - 1000 >= 0)
+                CurrentAltitude -= 1000;
         }
 
         public void FlyDown(int howMuch)
         {
-            throw new NotImplementedException();
+            if (CurrentAltitude - howMuch >= 0)
+                CurrentAltitude -= howMuch;
         }
 
-        internal void FlyUp()
+        public void FlyUp()
         {
-            throw new NotImplementedException();
+            if (CurrentAltitude + 1000 <= MaxAltitude)
+                CurrentAltitude += 1000;
         }
 
-        internal void FlyUp(int HowMuch)
+        public void FlyUp(int howMuch)
         {
-            throw new NotImplementedException();
+            if (CurrentAltitude + howMuch <= MaxAltitude)
+                CurrentAltitude += howMuch;
         }
     }
 }

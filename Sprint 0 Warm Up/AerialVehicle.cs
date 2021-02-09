@@ -19,10 +19,7 @@ namespace Sprint_0_Warm_Up
 
         public string About()
         {
-            if (Engine.IsStarted)
-                return $"This {ToString()} has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\n{Engine.ToString()} is started.";
-            else
-                return $"This {ToString()} has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\n{Engine.ToString()} is not started.";
+            return $"This {ToString()} has a max altitude of {MaxAltitude} ft.\nIt's current altitude is {CurrentAltitude} ft.\n{getEngineStartedString()}";
         }
 
         public string TakeOff()
@@ -34,6 +31,11 @@ namespace Sprint_0_Warm_Up
             }  
             else
                 return $"{ToString()} can't fly it's engine is not started.";
+        }
+
+        public string getEngineStartedString()
+        {
+            return Engine.About();
         }
 
         public void StartEngine()
